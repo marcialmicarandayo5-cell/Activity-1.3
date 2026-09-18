@@ -1,56 +1,54 @@
-// 3 VARIABLES / PROPERTIES
+//Activity 1.2
+
 let school = "NWSSU";
-let year = 1;
+let year = 3;
 let course = "Computer Science";
 
-// 3 ARRAYS
 let subjects = ["Math", "Science", "English"];
 let grades = [90, 85, 88];
 let hobbies = ["Gaming", "Movies", "Reading"];
 
-// 4 CLASSES
 class Person {
-    // CONSTRUCTOR 1
     constructor(name) {
         this.name = name;
     }
 
-    // ENCAPSULATION 1
     getName() {
         return this.name;
     }
 
-    // POLYMORPHISM
     getRole() {
         return "Person";
     }
 }
 
 class Student extends Person {
-    // CONSTRUCTOR 2
     constructor(name, section) {
         super(name);
         this.section = section;
     }
 
-    // ENCAPSULATION 2
     setSection(section) {
         this.section = section;
     }
 
-    // POLYMORPHISM
     getRole() {
         return "Student";
     }
 }
 
-class Teacher {
-    constructor(name) {
-        this.name = name;
+class Teacher extends Person {
+    constructor(name, subject) {
+        super(name);
+        this.subject = subject;
     }
 
     teach() {
         return "Teacher is teaching.";
+    }
+
+    getRole() {
+        return "Teacher";
     }
 }
 
@@ -64,13 +62,11 @@ class Course {
     }
 }
 
-// 4 OBJECTS
-let student = new Student("Marcial", "BSCS 1A");
-let person = new Person("Ian");
-let teacher = new Teacher("Mac");
+let student = new Student("Marcial", "BSCS 3B");
+let student2 = new Student("Ian", "BSCS 3A");
+let teacher = new Teacher("Mac", "Programming");
 let subject = new Course("Science");
 
-// 2 OBJECT LITERALS
 let schoolInfo = {
     name: "NWSSU",
     city: "Calbayog"
@@ -81,36 +77,47 @@ let studentInfo = {
     status: "College Student"
 };
 
-// 3 CONDITIONALS
-if (year == 1) {
-    console.log("First Year Student");
+if (year == 3) {
+    console.log("Third Year Student");
 }
 
 if (grades[0] >= 75) {
     console.log("Math: Passed");
 }
 
-if (student.section == "BSCS 1A") {
-    console.log("Section: BSCS 1A");
+if (student.section == "BSCS 3B") {
+    console.log("Section: BSCS 3B");
 }
 
-// 3 LOOPS
 for (let i = 0; i < subjects.length; i++) {
-    console.log(subjects[i]);
+    console.log("Subject: " + subjects[i]);
 }
 
 for (let grade of grades) {
-    console.log(grade);
+    console.log("Grade: " + grade);
 }
 
 for (let hobby of hobbies) {
-    console.log(hobby);
+    console.log("Hobby: " + hobby);
 }
 
-// OUTPUT
-console.log(student.getName());
-console.log(student.getRole());
+let displayStudent = (student) => {
+    console.log("Name: " + student.getName());
+    console.log("Role: " + student.getRole());
+};
+
+displayStudent(student);
+
+console.log("Second Student: " + student2.getName());
+console.log("Role: " + student2.getRole());
+
+console.log("Teacher: " + teacher.getName());
+console.log("Teacher Role: " + teacher.getRole());
 console.log(teacher.teach());
-console.log(subject.showCourse());
-console.log(schoolInfo.name);
-console.log(studentInfo.status);
+
+console.log("Course: " + subject.showCourse());
+
+console.log("School: " + schoolInfo.name);
+console.log("City: " + schoolInfo.city);
+
+console.log("Student Status: " + studentInfo.status);
